@@ -54,10 +54,16 @@ def mate_to_binary_file():
     print("The files are the same: {0}".format(filecmp.cmp("assets/5000000000.mate", "output/5000000000.mate")))
 
 
+def mate_to_image():
+    data = mate.read_mate("assets/5000000000.mate")
+    mate.generate_map(data, 'output/5000000000.mate.tiff')
+
+
 def main():
     mate_to_json()
     mate_to_binary_string()
     mate_to_binary_file()
+    mate_to_image()
 
 
 if __name__ == "__main__":
