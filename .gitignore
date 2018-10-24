@@ -2,6 +2,7 @@
 /.idea
 /tests/output/5000000000.mate.json
 /venv
+*/__pycache__
 
 # Logs
 logs
