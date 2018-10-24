@@ -1,6 +1,6 @@
 # Project Files
 /.idea
-/tests/output/5000000000.mate.json
+/tests/output/
 /venv
 */__pycache__
 

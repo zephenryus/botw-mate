@@ -17,8 +17,14 @@ def mate_to_json():
         outfile.write(json.dumps(out_obj, indent=4, separators=(',', ': ')))
 
 
+def mate_to_binary():
+    data = mate.read_mate(r"assets/5000000000.mate")
+    mate.write_mate(data, 'output/5000000000.mate')
+
+
 def main():
-    mate_to_json()
+    # mate_to_json()
+    mate_to_binary()
 
 
 if __name__ == "__main__":
