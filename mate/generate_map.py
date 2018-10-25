@@ -135,7 +135,8 @@ def generate_material_0_map(data: list, outfile: str, image_base_color=(0, 0, 0)
         color = material_colors[data[index].material_0_index]
 
         if color_as_value:
-            color = data[index].material_1_index
+            color_value = data[index].material_1_index
+            color = (color_value, color_value, color_value)
 
         material_map_image.putpixel((x, y), color)
 
@@ -160,7 +161,8 @@ def generate_material_1_map(data: list, outfile: str, image_base_color=(0, 0, 0)
         color = material_colors[data[index].material_1_index]
 
         if color_as_value:
-            color = data[index].material_0_index
+            color_value = data[index].material_1_index
+            color = (color_value, color_value, color_value)
 
         material_map_image.putpixel((x, y), color)
 

@@ -21,7 +21,7 @@ def read_mate(path: str, verbose=False) -> list:
         with open(path, 'rb') as infile:
             # Each file contains 65,536 entries (256 * 256)
             for _ in range(65536):
-                material_0_index, material_1_index, blend_weight, unknown = struct.unpack('>4B', infile.read(4))
+                material_0_index, material_1_index, blend_weight, unknown = struct.unpack('<4B', infile.read(4))
                 material_array.append(Mate(
                     material_0_index,
                     material_1_index,
