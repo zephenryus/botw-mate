@@ -1,6 +1,6 @@
 # Project Files
 /.idea
-/tests/output/
+/tests/output/*
 /venv
 */__pycache__
 

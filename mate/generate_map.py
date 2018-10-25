@@ -118,6 +118,56 @@ def generate_map(data: list, outfile: str, image_base_color=(0, 0, 0)):
     material_map_image.save(outfile)
 
 
+def generate_material_0_map(data: list, outfile: str, image_base_color=(0, 0, 0), color_as_value=False):
+    if len(data) != 65536:
+        if len(data) < 65536:
+            print("Error 2001: Data list is not long enough. Expected 65536 but saw {}".format(len(data)))
+            exit(2001)
+
+        print("Error 2002: Data list is too long. Expected 65536 but saw {}".format(len(data)))
+        exit(2002)
+
+    material_map_image = Image.new("RGB", (256, 256), image_base_color)
+
+    for index in range(65536):
+        x = index % 256
+        y = index // 256
+        color = material_colors[data[index].material_0_index]
+
+        if color_as_value:
+            color = data[index].material_1_index
+
+        material_map_image.putpixel((x, y), color)
+
+    print("Saving {}...".format(outfile))
+    material_map_image.save(outfile)
+
+
+def generate_material_1_map(data: list, outfile: str, image_base_color=(0, 0, 0), color_as_value=False):
+    if len(data) != 65536:
+        if len(data) < 65536:
+            print("Error 2001: Data list is not long enough. Expected 65536 but saw {}".format(len(data)))
+            exit(2001)
+
+        print("Error 2002: Data list is too long. Expected 65536 but saw {}".format(len(data)))
+        exit(2002)
+
+    material_map_image = Image.new("RGB", (256, 256), image_base_color)
+
+    for index in range(65536):
+        x = index % 256
+        y = index // 256
+        color = material_colors[data[index].material_1_index]
+
+        if color_as_value:
+            color = data[index].material_0_index
+
+        material_map_image.putpixel((x, y), color)
+
+    print("Saving {}...".format(outfile))
+    material_map_image.save(outfile)
+
+
 def lerp_rgb(color_0: tuple, color_1: tuple, weight: float) -> tuple:
     """
     Performs linear interpolation on the RGB values of two colors

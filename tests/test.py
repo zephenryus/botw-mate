@@ -55,8 +55,15 @@ def mate_to_binary_file():
 
 
 def mate_to_image():
+    """
+    Tests reading data from mate file then generating material map images
+    """
     data = mate.read_mate("assets/5000000000.mate")
     mate.generate_map(data, 'output/5000000000.mate.tiff')
+    mate.generate_material_0_map(data, 'output/5000000000.mate00.tiff')
+    mate.generate_material_0_map(data, 'output/5000000000.mate01.tiff', color_as_value=True)
+    mate.generate_material_1_map(data, 'output/5000000000.mate10.tiff')
+    mate.generate_material_1_map(data, 'output/5000000000.mate11.tiff', color_as_value=True)
 
 
 def main():
